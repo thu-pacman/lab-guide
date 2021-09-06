@@ -1,0 +1,67 @@
+site_name: PACMAN 指南
+site_description: 'Guide for PACMAN Lab, Tsinghua University'
+site_author: 'PACMAN Lab'
+copyright: 'Copyright &copy; 2021 PACMAN Lab, Department of Computer Science and Technology, Tsinghua University. All Rights Reserved.'
+
+theme: 
+  name: 'material'
+  language: 'zh'
+  custom_dir: 'theme-override/'
+  icon:
+    logo: material/memory
+    repo: fontawesome/brands/github
+  features:
+    # - navigation.tabs
+    # - navigation.instant
+
+repo_name: 'thu-pacman/lab-guide'
+repo_url: 'https://github.com/thu-pacman/lab-guide'
+
+extra:
+  pagetime: 'on'
+
+nav:
+  - 总述: index.md
+  - 实验室网络: network.md
+  - 实验室集群: clusters.md
+  - 实验室服务: services.md
+  # - FAQ: faq.md
+
+extra_javascript:
+  - 'https://cdn.jsdelivr.net/npm/mathjax@2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'
+
+plugins:
+  - search
+  - git-revision-date-localized:
+      fallback_to_build_date: true
+  - git-authors:
+      show_contribution: true
+      show_line_count: true
+
+markdown_extensions:
+  - admonition
+  - codehilite:
+      guess_lang: false
+      linenums: true
+  - footnotes
+  - def_list
+  - meta
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!python/name:pymdownx.emoji.to_svg
+  - pymdownx.inlinehilite
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
