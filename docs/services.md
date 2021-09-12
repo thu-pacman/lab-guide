@@ -11,6 +11,16 @@
 
 如需将服务接入 LDAP，可参考 [此文章](https://harrychen.xyz/2021/01/17/openldap-linux-auth/)，或联系管理员。
 
+## NetBox 设备管理
+
+* 地址：<https://pacman.cs.tsinghua.edu.cn/netbox/>
+* 服务器：`diablo`
+* 认证：LDAP（`sudo` 组用户可编辑，`ops` 组可管理）
+
+[NetBox](https://netbox.readthedocs.io/en/stable/) 是开源的设备管理系统，用于维护机房的各类设备详情（包括机器位置、编号）、网络配置（IP 分配、连接关系）、设备库存（如 GPU、网卡）等。
+
+在对机房设备进行更改后，必须通知管理员修改 NetBox 中的相应信息，以保持记录和实际情况的一致性。
+
 ## Grafana 监控系统
 
 * 地址：<https://pacman.cs.tsinghua.edu.cn/grafana/>
