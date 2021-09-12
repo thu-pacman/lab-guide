@@ -1,1 +1,51 @@
 # 实验室服务
+
+实验室运行了一系列的网络服务，为各位同学提供便利。
+
+## LDAP 身份认证
+
+* 地址：`ldap://172.23.1.88/`
+* 服务器：`fermat`
+
+实验室的 LDAP (Lightweight Directory Access Protocol) 服务为大部分的服务器、服务提供中心化的认证与鉴权服务。通常来说，用户可以在各处无感知地使用同一套凭据，也可以在任何服务器上进行修改。
+
+如需将服务接入 LDAP，可参考 [此文章](https://harrychen.xyz/2021/01/17/openldap-linux-auth/)，或联系管理员。
+
+## Grafana 监控系统
+
+* 地址：<https://pacman.cs.tsinghua.edu.cn/grafana/>
+* 服务器：`diablo`
+* 认证：LDAP（仅有查看权限）
+
+为了监控实验室各类设备和服务，实验室搭建了一套 Grafana 系统，目前提供以下监控：
+
+* 机房用电：Power Dashboard
+* `nico`, `gorgon` 和 `conv` 的 SLURM 使用：SLURM Dashboard
+* `nico`, `gorgon`, `bic` 和 `conv` 的 IB 使用：Infiniband Dashboard
+* 交换机网络流量：Switch Dashboard
+* 打印机耗材：Printers Overview
+* 某些服务器（需使用 Telegraf 显式接入）的系统整体情况：Telegraf: system dashboard
+
+## 会议室预订系统
+
+* 地址：<https://pacman.cs.tsinghua.edu.cn/room/>
+* 服务器：`diablo`
+* 认证：LDAP（仅可编辑自己的活动）
+
+为了更好地管理 9-320 会议室的使用，防止冲突，使用开源软件 [MRBS](https://mrbs.sourceforge.io/) 搭建了一套会议室预订系统。
+任何合法的 LDAP 用户都可以创建日程，包括单次和重复日程。
+
+## 个人主页
+
+* 地址：<https://pacman.cs.tsinghua.edu.cn/~username/>（需要替换 `username` 为自己 LDAP 用户名）
+* 服务器：`fermat`、`web`
+* 认证：LDAP / SSH（仅可编辑自己的主页）
+
+实验室为每个 LDAP 用户提供了个人主页服务。只需要将内容（仅支持静态页面）复制到 `fermat` 的 `~/public_html/` 目录下，即可被同步至网页服务器发布（同步间隔约为 10 分钟）。需要注意必须有 `index.html` 才能被浏览器显示，并且不支持列目录功能。
+
+## PACMAN Guide
+
+* 地址：<https://pacman.cs.tsinghua.edu.cn/guide/>
+* 服务器：`web`
+
+为了使新进入实验室的同学能够更好地使用各类资源，特编写了这本手册。

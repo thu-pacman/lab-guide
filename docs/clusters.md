@@ -23,7 +23,7 @@
 
 ## `bic`
 
-`bic` 的全称为 Brain Inspired Computing。
+`bic` 的全称为 Brain-Inspired Computing。
 
 * 服务器型号：Dell PowerEdge R730
 * CPU：双路 Intel(R) Xeon(R) CPU E5-2680 v4 @ 2.40GHz (28C56T)
@@ -50,9 +50,9 @@
 * 存储：2.6TB (`/home`) 共享 NFS（来自 `nico4`） + 11TB (`/mnt/zoltan`) 共享 NFS（来自 `zoltan`）
 * 网络：1Gbps Ethernet + 100Gbps Infiniband EDR
 * GPU：
-  * `nico[1-2]`: 8 $\times$ NVIDIA Tesla V100 32GB
-  * `nico3`: 4 $\times$ NVIDIA Tesla V100 32GB + 4 $\times$ NVIDIA Tesla V100 16GB
-  * `nico4`: NVIDIA Tesla P100 16GB + GeForce GTX 1080
+    * `nico[1-2]`: 8 $\times$ NVIDIA Tesla V100 32GB
+    * `nico3`: 4 $\times$ NVIDIA Tesla V100 32GB + 4 $\times$ NVIDIA Tesla V100 16GB
+    * `nico4`: NVIDIA Tesla P100 16GB + GeForce GTX 1080
 * 数量：8 (`nico[1-4]`)
 * 管理员：何家傲
 * 用户管理：LDAP
@@ -115,6 +115,8 @@
 
 ### `octave`
 
+`oct` 即为拉丁文中代表 8 的词缀，指此服务器可以安装 8 块 A100 GPU。
+
 * 服务器型号：Supermicro AS-4124GS-TNR
 * CPU：双路 AMD EPYC 7742 64-Core Processor (128C256T)
 * 内存：512GB DDR4-2933
@@ -167,13 +169,14 @@
 
 ### `nvdimm`
 
-此集群上装备有 NVDIMM（非 Intel Optane）。
+此集群上装备有 NVDIMM 非易失内存（非 Intel Optane）。
 
 * 服务器型号：Dell PowerEdge R740
 * CPU：？
 * 内存：？
 * 存储：？
 * 网络：1Gbps Ethernet
+* 数量：2 (`nvdimm[1-2]`)
 * 管理员：冯冠宇、郑立言
 * 用户管理：本地
 * 软件管理：暂无
