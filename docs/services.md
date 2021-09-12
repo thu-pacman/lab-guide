@@ -35,6 +35,8 @@
 为了更好地管理 9-320 会议室的使用，防止冲突，使用开源软件 [MRBS](https://mrbs.sourceforge.io/) 搭建了一套会议室预订系统。
 任何合法的 LDAP 用户都可以创建日程，包括单次和重复日程。
 
+为了方便不具有 LDAP 账号的用户，此系统具有一个公共账号，用户名为 `room`，密码与 PACMAN 的 WiFi 口令相同。
+
 ## 个人主页
 
 * 地址：<https://pacman.cs.tsinghua.edu.cn/~username/>（需要替换 `username` 为自己 LDAP 用户名）
