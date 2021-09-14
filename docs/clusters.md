@@ -4,7 +4,7 @@
 
 ## `gorgon`
 
-* 服务器型号：Dell PowerEdge R720
+* 服务器型号：Dell PowerEdge R730
 * CPU：双路 Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz (12C24T)
 * 内存：128GB DDR3-2133
 * 存储：2TB (`/home`) + 2TB (`/mnt/ssd`) 均为共享 NFS（来自 `gorgon0`）
@@ -54,7 +54,7 @@
     * `nico3`: 4 $\times$ NVIDIA Tesla V100 32GB + 4 $\times$ NVIDIA Tesla V100 16GB
     * `nico4`: NVIDIA Tesla P100 16GB + GeForce GTX 1080
 * 数量：8 (`nico[1-4]`)
-* 管理员：何家傲
+* 管理员：黄可钊
 * 用户管理：LDAP
 * 软件管理：Spack (`/opt/spack`)
 * 系统：Debian 10 (Buster)
