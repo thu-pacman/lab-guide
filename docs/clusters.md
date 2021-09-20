@@ -8,7 +8,7 @@
 * CPU：双路 Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz (12C24T)
 * 内存：128GB DDR3-2133
 * 存储：2TB (`/home`) + 2TB (`/mnt/ssd`) 均为共享 NFS（来自 `gorgon0`）
-* 网络：10Gbps (`gorgon0`) / 1Gbps （其他） Ethernet + 100Gbps Infiniband EDR
+* 网络：10Gbps (`gorgon0`) / 1Gbps （其他） Ethernet + 100Gbps Infiniband EDR (w/ OFED 4.3)
 * GPU：NVIDIA Tesla V100 16GB (`gorgon[1-4]`) / 32GB (`gorgon[5-7]`)
 * 数量：9 (`gorgon[0-9]`) + 4 (`gorgon[10-13]`)
 * 管理员：黄可钊
@@ -29,7 +29,7 @@
 * CPU：双路 Intel(R) Xeon(R) CPU E5-2680 v4 @ 2.40GHz (28C56T)
 * 内存：256GB DDR4-2400
 * 存储：15TB (`/home`) 共享 NFS（来自 `fermat`） + 24TB 本地 HDD + 6.4TB 本地 NVMe SSD (Intel DC P4618)
-* 网络：1Gbps Ethernet + 100Gbps Infiniband EDR
+* 网络：1Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 4.2)
 * GPU：2 $\times$ NVIDIA GeFore 1080 (`bic0[1-4]`)
 * 数量：9 (`bic0[1-9]`)
 * 管理员：余博文
@@ -48,7 +48,7 @@
 * CPU：双路 Intel(R) Xeon(R) Gold 5218 CPU @ 2.30GHz (32C64T)
 * 内存：384GB DDR4-2666
 * 存储：2.6TB (`/home`) 共享 NFS（来自 `nico4`） + 11TB (`/mnt/zoltan`) 共享 NFS（来自 `zoltan`）
-* 网络：1Gbps Ethernet + 100Gbps Infiniband EDR
+* 网络：1Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 5.3)
 * GPU：
     * `nico[1-2]`: 8 $\times$ NVIDIA Tesla V100 32GB
     * `nico3`: 4 $\times$ NVIDIA Tesla V100 32GB + 4 $\times$ NVIDIA Tesla V100 16GB
@@ -70,13 +70,13 @@
 * CPU：双路 Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz
 * 内存：384GB DDR3-1866
 * 存储：1TB (`/home`) + 8TB (`/mnt/ssd`) 均为共享 NFS（来自 `e1`）
-* 网络：1Gbps Ethernet + 100Gbps Infiniband EDR（实际带宽约 50Gbps）
+* 网络：1Gbps Ethernet + 100Gbps Infiniband EDR（w/ OFED 5.4，实际带宽约 50Gbps）
 * GPU：2 $\times$ NVIDIA Tesla V100 32GB
 * 数量：2 (`e[1-2]`)
 * 管理员：翟明书
 * 用户管理：集群内共享
 * 软件管理：Spack (`/opt/spack`)
-* 系统：Debian 10 (Buster)
+* 系统：Debian 11 (Bullseye)
 * 使用方式：SSH
 
 ## AMD 服务器
@@ -143,7 +143,7 @@
 * CPU：双路 Intel(R) Xeon(R) Gold 6240 CPU @ 2.60GHz (36C72T)
 * 内存：512GB DDR4-2933
 * 存储：1TB (`/home`) 本地存储 + 11TB (`/mnt/data`) 共享存储（共享给 `nico` 集群）
-* 网络：20Gbps Ethernet + 100Gbps Infiniband EDR
+* 网络：20Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 5.4)
 * GPU：4 $\times$ NVIDIA Tesla V100-SXM2 32GB
 * 管理员：陈晟祺
 * 用户管理：LDAP
@@ -207,7 +207,7 @@
 * CPU：双路 Intel(R) Xeon(R) CPU E5-2680 v4 @ 2.40GHz (28C56T)
 * 内存：256GB DDR4-2400
 * 存储：14TB (`/home`) 共享 NFS（来自 `conv0`） + 24TB 本地 HDD
-* 网络：1Gbps Ethernet + 100Gbps Infiniband EDR
+* 网络：1Gbps Ethernet + 100Gbps Infiniband EDR (w/o OFED)
 * GPU：NVIDIA GeForce GTX 1080 (`conv0`) / NVIDIA Tesla P100 16GB (`conv[1-4]`)
 * 数量：5 (`conv[0-4]`)
 * 管理员：陈晟祺
