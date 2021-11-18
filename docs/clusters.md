@@ -5,7 +5,7 @@
 ## `gorgon`
 
 * 服务器型号：Dell PowerEdge R730
-* CPU：双路 Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz (12C24T)
+* CPU：双路 Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz (12C, HT disabled)
 * 内存：128GB DDR3-2133
 * 存储：2TB (`/home`) + 2TB (`/mnt/ssd`) 均为共享 NFS（来自 `gorgon0`）
 * 网络：10Gbps (`gorgon0`) / 1Gbps （其他） Ethernet + 100Gbps Infiniband EDR (w/ OFED 4.3)
@@ -17,7 +17,7 @@
 * 系统：Ubuntu 16.04 (Xenial)
 * 集群使用：SLURM（登录节点 `gorgon0`）
 
-`Gorgon` 集群的前 9 台为实际业务集群，可通过 SLURM 直接提交作业使用；后 4 台为实验性集群，可通过独占方式向管理员申请使用权限。
+`gorgon` 集群的前 9 台为实际业务集群，可通过 SLURM 直接提交作业使用；后 4 台为实验性集群，可通过独占方式向管理员申请使用权限。
 
 目前 `gorgon` 的软件管理较为混乱，两套体系共存。用户可能需要提前测试可用性。
 
@@ -32,7 +32,7 @@
 * 网络：1Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 4.2)
 * GPU：2 $\times$ NVIDIA GeFore 1080 (`bic0[1-4]`)
 * 数量：9 (`bic0[1-9]`)
-* 管理员：余博文
+* 管理员：俞博文
 * 用户管理：LDAP（要求位于 `login` 组方可登录）
 * 软件管理：Spack (`/spack-bic`)
 * 系统：Ubuntu 18.04 (Bionic)
@@ -54,13 +54,13 @@
     * `nico3`: 4 $\times$ NVIDIA Tesla V100 32GB + 4 $\times$ NVIDIA Tesla V100 16GB
     * `nico4`: NVIDIA Tesla P100 16GB + GeForce GTX 1080
 * 数量：8 (`nico[1-4]`)
-* 管理员：黄可钊
+* 客服：黄可钊
 * 用户管理：LDAP
 * 软件管理：Spack (`/opt/spack`)
 * 系统：Debian 10 (Buster)
 * 使用方式：SLURM（登录节点 `nico4`）
 
-`nico` 是实验室主要的 GPU 集群，可用于大规模 GPU 实验。两台八卡机（`nico[1-2]`）位于 SLURM 的 `Big` 分区中，默认对用户不开放，需要向管理员进行申请。申请后，可使用 `srun -A priority -p Big` 的方式提交运行。
+`nico` 是实验室主要的 GPU 集群，可用于大规模 GPU 实验。进行大规模实验可使用 `Big` 分区，默认对用户不开放，需要时向管理员进行申请。普通队列中的机器数目会根据使用情况由管理员进行动态调整。
 
 ## 超算
 
@@ -98,7 +98,7 @@
 * 系统：Debian 11 (Bullseye)
 * 使用方式：SSH
 
-### ja
+### `ja`
 
 `ja` 即为德语的 `yes`。
 
@@ -112,6 +112,21 @@
 * 软件管理：Spack (`/home/spack`)
 * 系统：Debian 11 (Bullseye)
 * 使用方式：SSH
+
+### `impreza0`
+
+`impreza` 意为 intel's impressive advance
+
+* 服务器型号: Dell R750
+* CPU: 双路 Intel Xeon Gold 6338
+* 内存: 512GB DDR4-3200
+* 网络：1Gbps Ethernet
+* 管理员：陈晟祺
+* 用户管理：LDAP
+* 系统：Debian 11 (Bullseye)
+* 使用方式：SSH
+
+该服务器由内存数据库项目独占, 可能会被拆除.
 
 ### `octave`
 
