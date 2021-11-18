@@ -79,9 +79,9 @@
 * 系统：Debian 11 (Bullseye)
 * 使用方式：SSH
 
-## AMD 服务器
+## 实验性服务器及建设中的集群
 
-实验室现有三台 AMD 服务器，其中 `yes` 和 `ja` 为 CPU 服务器，`octave` 为 GPU 服务器。
+实验性服务器包括三台 AMD 服务器，其中 `yes` 和 `ja` 为 CPU 服务器，`octave` 为 GPU 服务器。
 
 ### `yes`
 
@@ -112,21 +112,6 @@
 * 软件管理：Spack (`/home/spack`)
 * 系统：Debian 11 (Bullseye)
 * 使用方式：SSH
-
-### `impreza0`
-
-`impreza` 意为 intel's impressive advance
-
-* 服务器型号: Dell R750
-* CPU: 双路 Intel Xeon Gold 6338
-* 内存: 512GB DDR4-3200
-* 网络：1Gbps Ethernet
-* 管理员：陈晟祺
-* 用户管理：LDAP
-* 系统：Debian 11 (Bullseye)
-* 使用方式：SSH
-
-该服务器由内存数据库项目独占, 可能会被拆除.
 
 ### `octave`
 
@@ -197,6 +182,21 @@
 * 软件管理：暂无
 * 系统：？
 * 使用方式：SSH
+
+### `impreza0`
+
+`impreza` 意为 intel's impressive advance
+
+* 服务器型号: Dell R750
+* CPU: 双路 Intel Xeon Gold 6338
+* 内存: 512GB DDR4-3200
+* 网络：1Gbps Ethernet
+* 管理员：陈晟祺
+* 用户管理：LDAP
+* 系统：Debian 11 (Bullseye)
+* 使用方式：SSH
+
+该服务器由内存数据库项目独占.
 
 ### `lotus`
 
