@@ -48,7 +48,7 @@
 * CPU：双路 Intel(R) Xeon(R) Gold 5218 CPU @ 2.30GHz (32C64T)
 * 内存：384GB DDR4-2666
 * 存储：2.6TB (`/home`) 共享 NFS（来自 `nico4`） + 11TB (`/mnt/zoltan`) 共享 NFS（来自 `zoltan`）
-* 网络：1Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 5.3)
+* 网络：1Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 5.4)
 * GPU：
     * `nico[1-2]`: 8 $\times$ NVIDIA Tesla V100 32GB
     * `nico3`: 4 $\times$ NVIDIA Tesla V100 32GB + 4 $\times$ NVIDIA Tesla V100 16GB
@@ -57,10 +57,26 @@
 * 客服：黄可钊
 * 用户管理：LDAP
 * 软件管理：Spack (`/opt/spack`)
-* 系统：Debian 10 (Buster)
+* 系统：Debian 11 (Bullseye)
 * 使用方式：SLURM（登录节点 `nico4`）
 
 `nico` 是实验室主要的 GPU 集群，可用于大规模 GPU 实验。进行大规模实验可使用 `Big` 分区，默认对用户不开放，需要时向管理员进行申请。普通队列中的机器数目会根据使用情况由管理员进行动态调整。
+
+### `ja` 
+
+请注意不要和下面的 `ja` 服务器混淆。其中 `ja` 是德语的 `yes`，均取自于 `AMD Yes!` 的口号。
+
+* 服务器型号：Dell PowerEdge R7515 (`yes`) / Supermicro AS-2024US-TRT (`ja[1-4]`)
+* CPU：单路 (`yes`) / 双路 (`ja[1-4]`) AMD EPYC 7742 64-Core Processor (64C128T / 128C256T)
+* 内存：256GB DDR4-3200 (`yes`) / 576GB DDR4-2933 (`ja[1-4]`)
+* 存储：4.3TB (`/home`) 共享 NFS（来自 `yes`）
+* 网络：1Gbps Ethernet + 200Gbps Infiniband EDR (`ja[1-4]`, w/ OFED 5.4)
+* 数量：4 (`ja[1-4]`)
+* 管理员：陈晟祺
+* 用户管理：LDAP
+* 软件管理：Spack (`/opt/spack`)
+* 系统：Debian 11 (Bullseye)
+* 使用方式：SLURM（登录节点 `yes`）
 
 ## 超算
 
@@ -81,22 +97,7 @@
 
 ## 实验性服务器及建设中的集群
 
-实验性服务器包括三台 AMD 服务器，其中 `yes` 和 `ja` 为 CPU 服务器，`octave` 为 GPU 服务器。
-
-### `yes`
-
-`yes` 取自 `AMD Yes!` 的口号。
-
-* 服务器型号：Dell PowerEdge R7515
-* CPU：单路 AMD EPYC 7742 64-Core Processor (64C128T)
-* 内存：256GB DDR4-3200
-* 存储：1TB (`/home`) 共享 NFS（来自 `ja`）
-* 网络：1Gbps Ethernet
-* 管理员：陈晟祺
-* 用户管理：LDAP
-* 软件管理：Spack (`/home/spack`)
-* 系统：Debian 11 (Bullseye)
-* 使用方式：SSH
+实验性服务器包括三台 AMD 服务器，其中 `impreza0` 和 `ja` 为 CPU 服务器，`octave` 为 GPU 服务器。
 
 ### `ja`
 
@@ -129,9 +130,26 @@
 * 系统：Debian 11 (Bullseye)
 * 使用方式：SSH
 
+### `impreza0`
+
+`impreza` 意为 intel's impressive advance
+
+* 服务器型号: Dell R750
+* CPU: 双路 Intel Xeon Gold 6338 (64T128T)
+* 内存: 512GB DDR4-3200
+* 网络：1Gbps Ethernet
+* GPU：AMD Instinct MI100
+* 存储：120GB (`/`) + 480GB (`/home`)
+* 管理员：陈晟祺
+* 用户管理：LDAP
+* 系统：Debian 11 (Bullseye)
+* 使用方式：SSH
+
+该服务器由内存数据库项目独占。
+
 ### 新集群
 
-新的 AMD 集群正在进一步采购中，预计将由四台与 `ja` 配置相同的服务器构成，并配置 Infiniband HDR 200Gbps 网卡。
+新的 Intel 集群正在进一步采购中，预计将由四台同构服务器构成，并配置 Infiniband HDR 200Gbps 网卡。
 
 ## NVLink GPU 服务器
 
@@ -182,21 +200,6 @@
 * 软件管理：暂无
 * 系统：？
 * 使用方式：SSH
-
-### `impreza0`
-
-`impreza` 意为 intel's impressive advance
-
-* 服务器型号: Dell R750
-* CPU: 双路 Intel Xeon Gold 6338
-* 内存: 512GB DDR4-3200
-* 网络：1Gbps Ethernet
-* 管理员：陈晟祺
-* 用户管理：LDAP
-* 系统：Debian 11 (Bullseye)
-* 使用方式：SSH
-
-该服务器由内存数据库项目独占.
 
 ### `lotus`
 
