@@ -130,7 +130,7 @@
 * 内存：512GB DDR4-2933
 * 存储：2.2TB (`/home`) 本地存储
 * 网络：1Gbps Ethernet
-* GPU：5 $\times$ NVIDIA A00-PCIE-40GB
+* GPU：5 $\times$ NVIDIA A100-PCIE-40GB
 * 管理员：陈晟祺
 * 用户管理：LDAP
 * 软件管理：Spack (`/home/spack`)
