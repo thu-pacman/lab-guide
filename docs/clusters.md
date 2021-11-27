@@ -77,7 +77,7 @@
 * CPU：单路 (`yes`) / 双路 (`ja[1-4]`) AMD EPYC 7742 64-Core Processor (64C128T / 128C256T)
 * 内存：256GB DDR4-3200 (`yes`) / 576GB DDR4-2933 (`ja[1-4]`)
 * 存储：4.3TB (`/home`) 共享 NFS（来自 `yes`）
-* 网络：1Gbps Ethernet + 200Gbps Infiniband EDR (`ja[1-4]`, w/ OFED 5.4)
+* 网络：20Gbps Ethernet (`yes`) + 200Gbps Infiniband EDR (`ja[1-4]`, w/ OFED 5.4)
 * 数量：4 (`ja[1-4]`)
 * 管理员：陈晟祺
 * 用户管理：LDAP
