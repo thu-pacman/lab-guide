@@ -55,6 +55,17 @@
 
 实验室为每个 LDAP 用户提供了个人主页服务。只需要将内容（仅支持静态页面）复制到 `fermat` 的 `~/public_html/` 目录下，即可被同步至网页服务器发布（同步间隔约为 10 分钟）。需要注意必须有 `index.html` 才能被浏览器显示，并且不支持列目录功能。
 
+## PanLeaf （实验性）
+
+* 地址：<http://fermat:8002>（目前仅限内网访问）
+* 服务器：`fermat`
+* 认证：LDAP，原来由 xl 维护的 ShareLatex 的用户可使用原有邮箱和密码登录
+* 维护者：laekov
+
+PanLeaf 是一个扩展版的 OverLeaf，除多人同时在线编辑 LaTeX 项目外，还支持了 pandoc markdown 语法，欢迎试用。（详见项目主页：<https://github.com/laekov/panleaf>）
+
+注意，该服务不对数据安全作任何保证。重要数据请及时备份，涉密数据请勿使用。
+
 ## PACMAN Guide
 
 * 地址：<https://pacman.cs.tsinghua.edu.cn/guide/>
