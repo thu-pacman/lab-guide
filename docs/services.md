@@ -57,7 +57,7 @@
 
 ## PanLeaf （实验性）
 
-* 地址：<http://fermat:8002>（目前仅限内网访问）
+* 地址：<http://fermat:8004>（目前仅限内网访问）
 * 服务器：`fermat`
 * 认证：LDAP，原来由 xl 维护的 ShareLatex 的用户可使用原有邮箱和密码登录
 * 维护者：laekov
