@@ -142,7 +142,7 @@
 `impreza` 意为 intel's impressive advance
 
 * 服务器型号: Dell R750
-* CPU: 双路 Intel Xeon Gold 6338 (64T128T)
+* CPU: 双路 Intel Xeon Gold 6338 (64C128T)
 * 内存: 512GB DDR4-3200
 * 网络：1Gbps Ethernet
 * GPU：AMD Instinct MI100
