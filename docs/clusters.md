@@ -217,10 +217,10 @@
 * 内存：256GB DDR4-2400
 * 存储：24TB 本地 HDD
 * 网络：1Gbps Ethernet + 100Gbps Infiniband EDR（未连接）
-* GPU：NVIDIA Tesla P100 16GB + NVIDIA Tesla V100 32GB
+* GPU：NVIDIA Tesla A100 40GB + NVIDIA Tesla V100 32GB
 * 管理员：王豪杰、马子轩
 * 用户管理：本地
-* 软件管理：暂无
+* 软件管理：Spack (`/home/spack/spack/share/spack/`)
 * 系统：Ubuntu 16.04 (Xenial)
 * 使用方式：SSH
 
