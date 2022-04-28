@@ -16,7 +16,7 @@
 * 存储：2TB (`/home`) + 2TB (`/mnt/ssd`) 均为共享 NFS（来自 `gorgon0`）
 * 网络：10Gbps (`gorgon0`) / 1Gbps （其他） Ethernet + 100Gbps Infiniband EDR (w/ OFED 4.3)
 * 端口转发：`166.111.68.163:3330` -> `gorgon0:22`
-* GPU：NVIDIA Tesla V100 16GB (`gorgon[1-4]`) / 32GB (`gorgon[5-7]`)
+* GPU：NVIDIA Tesla V100 16GB (`gorgon[1]`) / A100 80GB (`gorgon[3-6]`)
 * 数量：9 (`gorgon[0-9]`) + 4 (`gorgon[10-13]`)
 * 管理员：黄可钊
 * 用户管理：集群内共享
@@ -24,9 +24,9 @@
 * 系统：Ubuntu 16.04 (Xenial)
 * 集群使用：SLURM（登录节点 `gorgon0`）
 
-`gorgon` 集群的前 9 台为实际业务集群（`gorgon2` 已损坏），可通过 SLURM 直接提交作业使用；后 4 台为实验性集群，可通过独占方式向管理员申请使用权限。
+`gorgon` 集群的前 9 台为实际业务集群（`gorgon[2,7]` 已损坏），可通过 SLURM 直接提交作业使用；后 4 台为实验性集群，可通过独占方式向管理员申请使用权限。
 
-目前 `gorgon` 的软件管理较为混乱，两套体系共存。用户可能需要提前测试可用性。
+目前 `gorgon` 的软件管理较为混乱，两套体系共存。用户可能需要提前测试可用性。__该集群预计于 2022 年 5 月下线停用，仅保留 gorgon0 以提供旧数据的访问。__
 
 ## `bic`
 
@@ -59,7 +59,7 @@
 * GPU：
     * `nico[1-2]`: 8 $\times$ NVIDIA Tesla V100 32GB
     * `nico3`: 4 $\times$ NVIDIA Tesla V100 32GB + 4 $\times$ NVIDIA Tesla V100 16GB
-    * `nico4`: NVIDIA Tesla P100 16GB + GeForce GTX 1080
+    * `nico4`: 3 $\times$ NVIDIA Tesla V100 32GB + 5 $\times$ NVIDIA Tesla V100 16GB
 * 数量：8 (`nico[1-4]`)
 * 客服：黄可钊
 * 用户管理：LDAP
@@ -67,7 +67,7 @@
 * 系统：Debian 11 (Bullseye)
 * 使用方式：SLURM（登录节点 `nico4`）
 
-`nico` 是实验室主要的 GPU 集群，可用于大规模 GPU 实验。进行大规模实验可使用 `Big` 分区，默认对用户不开放，需要时向管理员进行申请。普通队列中的机器数目会根据使用情况由管理员进行动态调整。
+`nico` 是实验室用于分布式计算实验的 GPU 集群，可进行至多 32 GPU 规模的实验。进行大规模实验需使用 `Big` 分区，进行长时间任务（如训练大型深度神经网络）需使用 `Long` 分区，这两个分区默认对用户不开放，需要时向管理员进行申请。普通队列中的机器数目会根据使用情况由管理员进行动态调整。__禁止私自从 nico 集群中拆走 GPU，否则会受到天谴。__
 
 ## `ja`
 
