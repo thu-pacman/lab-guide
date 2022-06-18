@@ -224,6 +224,21 @@
 * 系统：Ubuntu 16.04 (Xenial)
 * 使用方式：SSH
 
+### `xavier`
+
+此机器原本为 `nova`。
+
+* 服务器型号：SuperMicro 不明
+* CPU：单路 AMD EPYC 7282 16-Core Processor
+* 内存：112GB DDR4-2400
+* 网络：1Gbps Ethernet
+* 加速卡: Xilinx FPGA
+* 管理员：师天麾
+* 用户管理：LDAP
+* 软件管理：无
+* 系统：Debian 11 (Bullseye)
+* 使用方式：SSH, 使用前请先联系管理员
+
 ### `conv`
 
 此集群原本也为 `bic` 的一部分，故配置相同。`conv` 取内卷之意。
