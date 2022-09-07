@@ -51,21 +51,21 @@
 
 `nico` 得名于 Nikola Tesla，取其姓代指此为 GPU 集群。
 
-* 服务器型号：Supermicro SYS-4029GP-TRT
+* 工作节点服务器型号：Supermicro SYS-4029GP-TRT
 * CPU：双路 Intel(R) Xeon(R) Gold 5218 CPU @ 2.30GHz (32C64T)
 * 内存：384GB DDR4-2666
-* 存储：2.6TB (`/home`) 共享 NFS（来自 `nico4`） + 11TB (`/mnt/zoltan`) 共享 NFS（来自 `zoltan`）
+* 存储：2.6TB (`/home`) 共享 NFS（来自 `nico0`） + 11TB (`/mnt/zoltan`) 共享 NFS（来自 `zoltan`）
 * 网络：1Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 5.4)
 * GPU：
     * `nico[1-2]`: 8 $\times$ NVIDIA Tesla V100 32GB
     * `nico3`: 4 $\times$ NVIDIA Tesla V100 32GB + 4 $\times$ NVIDIA Tesla V100 16GB
     * `nico4`: 3 $\times$ NVIDIA Tesla V100 32GB + 5 $\times$ NVIDIA Tesla V100 16GB
-* 数量：8 (`nico[1-4]`)
+* 数量：4 (`nico[1-4]`)
 * 客服：黄可钊
 * 用户管理：LDAP
 * 软件管理：Spack (`/opt/spack`)
 * 系统：Debian 11 (Bullseye)
-* 使用方式：SLURM（登录节点 `nico4`）
+* 使用方式：SLURM（登录节点 `nico0`）
 
 `nico` 是实验室用于分布式计算实验的 GPU 集群，可进行至多 32 GPU 规模的实验。进行大规模实验需使用 `Big` 分区，进行长时间任务（如训练大型深度神经网络）需使用 `Long` 分区，这两个分区默认对用户不开放，需要时向管理员进行申请。普通队列中的机器数目会根据使用情况由管理员进行动态调整。__禁止私自从 nico 集群中拆走 GPU，否则会受到天谴。__
 
