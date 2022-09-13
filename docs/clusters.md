@@ -164,17 +164,17 @@
 
 ### `zoltan`
 
-* 服务器型号：Supermicro 型号不明
+* 服务器型号：Inspur 型号不明
 * CPU：双路 Intel(R) Xeon(R) Gold 6240 CPU @ 2.60GHz (36C72T)
 * 内存：512GB DDR4-2933
 * 存储：1TB (`/home`) 本地存储 + 11TB (`/mnt/data`) 共享存储（共享给 `nico` 集群）
 * 网络：20Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 5.4)
 * GPU：4 $\times$ NVIDIA Tesla V100-SXM2 32GB
-* 管理员：陈晟祺
+* 管理员：SLURM
 * 用户管理：LDAP
-* 软件管理：暂无
+* 软件管理：Spack (nico)
 * 系统：Debian 11 (Bullseye)
-* 使用方式：SSH
+* 使用方式：nico 的 slurm
 
 ### `hanzo`
 
