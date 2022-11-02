@@ -197,15 +197,15 @@
 此集群上装备有 NVDIMM 非易失内存（非 Intel Optane）。
 
 * 服务器型号：Dell PowerEdge R740
-* CPU：？
-* 内存：？
-* 存储：？
+* CPU：Intel(R) Xeon(R) Gold 6126 CPU @ 2.60GHz (24C48T)
+* 内存：576GB DDR4-2666
+* 存储：多个 NVDIMM 非易失内存，容量从 700G 至 1.8T
 * 网络：1Gbps Ethernet
 * 数量：2 (`nvdimm[1-2]`)
 * 管理员：冯冠宇、郑立言
 * 用户管理：本地
 * 软件管理：暂无
-* 系统：？
+* 系统：18.04.4 LTS (Bionic)
 * 使用方式：SSH
 
 ### `lotus`
