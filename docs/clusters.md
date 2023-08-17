@@ -51,20 +51,20 @@
 
 `nico` 得名于 Nikola Tesla，取其姓代指此为 GPU 集群。
 * 工作节点
-   * 服务器型号：Supermicro SYS-4029GP-TRT
-   * CPU：双路 Intel(R) Xeon(R) Gold 5218 CPU @ 2.30GHz (32C64T)
-   * 数量：4 (`nico[1-4]`)
-   * GPU：
-       * `nico[1-2]`: 8 $\times$ NVIDIA Tesla V100 32GB
-       * `nico3`: 4 $\times$ NVIDIA Tesla V100 32GB + 4 $\times$ NVIDIA Tesla V100 16GB
-       * `nico4`: 3 $\times$ NVIDIA Tesla V100 32GB + 5 $\times$ NVIDIA Tesla V100 16GB
-   * 网络：1Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 5.4)
-   * 内存：384GB DDR4-2666
+    * 服务器型号：Supermicro SYS-4029GP-TRT
+    * CPU：双路 Intel(R) Xeon(R) Gold 5218 CPU @ 2.30GHz (32C64T)
+    * 数量：4 (`nico[1-4]`)
+    * GPU：
+        * `nico[1-2]`: 8 $\times$ NVIDIA Tesla V100 32GB
+        * `nico3`: 4 $\times$ NVIDIA Tesla V100 32GB + 4 $\times$ NVIDIA Tesla V100 16GB
+        * `nico4`: 3 $\times$ NVIDIA Tesla V100 32GB + 5 $\times$ NVIDIA Tesla V100 16GB
+    * 网络：1Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 5.4)
+    * 内存：384GB DDR4-2666
 * 管理节点
-   * 服务器型号：Supermicro SYS-2029U-TR4T
-   * CPU：双路 Intel(R) Xeon(R) Gold 6252 CPU @ 2.10GHz (48C96T)
-   * 网络：20Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 5.4)
-   * 内存：384GB DDR4-2933
+    * 服务器型号：Supermicro SYS-2029U-TR4T
+    * CPU：双路 Intel(R) Xeon(R) Gold 6252 CPU @ 2.10GHz (48C96T)
+    * 网络：20Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 5.4)
+    * 内存：384GB DDR4-2933
 * 存储：13.5TB (`/home`) 共享 NFS（来自 `nico0`） + 11TB (`/mnt/zoltan`) 共享 NFS（来自 `zoltan`）
 * 客服：黄可钊
 * 用户管理：LDAP
