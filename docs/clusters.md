@@ -8,26 +8,6 @@
 
 端口转发：`166.111.68.163:2222` -> `jumper:22`。用户可以使用 LDAP 账号或者 `jumper` 上的本地帐号登录。
 
-## `gorgon`
-
-* 服务器型号：Dell PowerEdge R730
-* CPU：双路 Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz (12C, HT disabled)
-* 内存：128GB DDR3-2133
-* 存储：2TB (`/home`) + 2TB (`/mnt/ssd`) 均为共享 NFS（来自 `gorgon0`）
-* 网络：10Gbps (`gorgon0`) / 1Gbps （其他） Ethernet + 100Gbps Infiniband EDR (w/ OFED 4.3)
-* 端口转发：`166.111.68.163:3330` -> `gorgon0:22`
-* GPU：NVIDIA Tesla V100 16GB (`gorgon[1]`) / A100 80GB (`gorgon[3-6]`)
-* 数量：9 (`gorgon[0-9]`) + 4 (`gorgon[10-13]`)
-* 管理员：黄可钊
-* 用户管理：集群内共享
-* 软件管理：Environment Modules (`/usr/local/Modules`) + Spack (`/opt/spack`)
-* 系统：Ubuntu 16.04 (Xenial)
-* 集群使用：SLURM（登录节点 `gorgon0`）
-
-`gorgon` 集群的前 9 台为实际业务集群（`gorgon[2,7]` 已损坏），可通过 SLURM 直接提交作业使用；后 4 台为实验性集群，可通过独占方式向管理员申请使用权限。
-
-目前 `gorgon` 的软件管理较为混乱，两套体系共存。用户可能需要提前测试可用性。__该集群已下线停用，仅保留 gorgon0 以提供旧数据的访问。__
-
 ## `bic`
 
 `bic` 的全称为 Brain-Inspired Computing。
@@ -50,6 +30,7 @@
 ## `nico`
 
 `nico` 得名于 Nikola Tesla，取其姓代指此为 GPU 集群。
+
 * 工作节点
     * 服务器型号：Supermicro SYS-4029GP-TRT
     * CPU：双路 Intel(R) Xeon(R) Gold 5218 CPU @ 2.30GHz (32C64T)
@@ -58,12 +39,18 @@
         * `nico[1-2]`: 8 $\times$ NVIDIA Tesla V100 32GB
         * `nico3`: 4 $\times$ NVIDIA Tesla V100 32GB + 4 $\times$ NVIDIA Tesla V100 16GB
         * `nico4`: 3 $\times$ NVIDIA Tesla V100 32GB + 5 $\times$ NVIDIA Tesla V100 16GB
-    * 网络：1Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 5.4)
+    * 网络：1Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 23.04)
     * 内存：384GB DDR4-2666
+* NVLink GPU 节点：
+    * 服务器型号：Inspur 型号不明
+    * CPU：双路 Intel(R) Xeon(R) Gold 6240 CPU @ 2.60GHz (36C72T)
+    * 内存：512GB DDR4-2933
+    * 网络：20Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 23.04)
+    * GPU：8 $\times$ NVIDIA Tesla V100-SXM2 32GB
 * 管理节点
     * 服务器型号：Supermicro SYS-2029U-TR4T
     * CPU：双路 Intel(R) Xeon(R) Gold 6252 CPU @ 2.10GHz (48C96T)
-    * 网络：20Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 5.4)
+    * 网络：20Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 23.04)
     * 内存：384GB DDR4-2933
 * 存储：13.5TB (`/home`) 共享 NFS（来自 `nico0`） + 11TB (`/mnt/zoltan`) 共享 NFS（来自 `zoltan`）
 * 客服：黄可钊
@@ -78,38 +65,51 @@
 
 请注意不要和下面的 `ja` 服务器混淆。其中 `ja` 是德语的 `yes`，均取自于 `AMD Yes!` 的口号。
 
-* 服务器型号：Dell PowerEdge R7515 (`yes`) / Supermicro AS-2024US-TRT (`ja[1-4]`)
-* CPU：单路 (`yes`) / 双路 (`ja[1-4]`) AMD EPYC 7742 64-Core Processor (64C128T / 128C256T)
-* 内存：256GB DDR4-3200 (`yes`) / 576GB DDR4-2933 (`ja[1-4]`)
-* 存储：4.3TB (`/home`) 共享 NFS（来自 `yes`）
-* 网络：20Gbps Ethernet (`yes`) + 200Gbps Infiniband EDR (`ja[1-4]`, w/ OFED 5.4)
-* 数量：4 (`ja[1-4]`)
-* 管理员：陈晟祺
+* 服务器型号：
+    * `yes`: Dell PowerEdge R7515 (2U)
+    * `ja[1-4]`: Supermicro AS-2024US-TRT (2U)
+    * `octave, twills`: Supermicro AS-4124GS-TNR (4U)
+* CPU：
+    * `yes`: 1 $\times$ AMD EPYC 7742 64-Core Processor (64C128T)
+    * `ja[1-4], octave`: 2 $\times$ AMD EPYC 7742 64-Core Processor (128C256T)
+    * `twills`: 2 $\times$ AMD EPYC 7453 28-Core Processor (56C112T)
+* GPU:
+    * `ja[1-4]`: 1 $\times$ NVIDIA Tesla V100 16GB
+    * `octave`: 8 $\times$ NVIDIA A100 40GB PCIe
+    * `twills`: 2 $\times$ NVIDIA A10 24GB PCIe，另有其他请自行查看
+* 内存：256GB DDR4-3200 (`yes, twills`) / 512GB DDR4-3200 (`ja[1-4]`) / 512GB DDDR4-2933 (`octave`)
+* 存储：
+    * 共享：8TB (`/home`) 共享 NFS（来自 `yes` 的 ZFS RAIDZ1）
+    * `octave`: 16TB 本地私有 ZFS 存储（`/data`）
+* 网络：
+    * `yes`： 20Gbps Ethernet
+    * `ja[1-4]`：1Gbps Ethernet + 200Gbps Infiniband HDR (w/ OFED 23.04)
+    * `twills`: 1Gbps Ethernet + 2 $\times$ 100Gbps Infiniband EDR (w/ OFED 23.04)
+* 数量：6 (`ja[1-4]`, `octave`, `twills`)
+* 管理员：何家傲
 * 用户管理：LDAP
 * 软件管理：Spack (`/opt/spack`)
-* 系统：Debian 11 (Bullseye)
+* 系统：Debian 12 (Bookworm)
 * 使用方式：SLURM（登录节点 `yes`）
 
 ## 超算
 
 超算集群为超算队成员专用，不对外开放。
 
-* 服务器型号：Dell PowerEdge R720
-* CPU：双路 Intel(R) Xeon(R) CPU E5-2699 v4 @ 2.20GHz
-* 内存：384GB DDR3-1866
-* 存储：1TB (`/home`) + 8TB (`/mnt/ssd`) 均为共享 NFS（来自 `e1`）
-* 网络：1Gbps Ethernet + 100Gbps Infiniband EDR（w/ OFED 5.4，实际带宽约 50Gbps）
-* GPU：2 $\times$ NVIDIA Tesla V100 32GB
-* 数量：2 (`e[1-2]`)
-* 管理员：翟明书
+* 服务器型号：Inspur NF5280M6
+* CPU：双路 Intel(R) Xeon(R) Platinum 8358 CPU
+* 内存：512GB DDR4-3200
+* 存储：180GB (`rpool`) + 4TB (`tank`) 均为共享 NFS（来自 `e1`）
+* 网络：1Gbps Ethernet + 200Gbps Infiniband HDR（w/ OFED 23.04）
+* GPU：3 $\times$ NVIDIA A100 80GB PCIe (1 on `e1`, 2 on `e3`)
+* 数量：4 (`e[1-4]`)
+* 管理员：张闰清
 * 用户管理：集群内共享
 * 软件管理：Spack (`/opt/spack`)
-* 系统：Debian 11 (Bullseye)
+* 系统：Debian 12 (Bookworm)
 * 使用方式：SSH
 
 ## 实验性服务器及建设中的集群
-
-实验性服务器包括三台 AMD 服务器，其中 `impreza0` 和 `ja` 为 CPU 服务器，`octave` 为 GPU 服务器。
 
 ### `ja`
 
@@ -126,22 +126,6 @@
 * 系统：Debian 11 (Bullseye)
 * 使用方式：SSH
 
-### `octave`
-
-`oct` 即为拉丁文中代表 8 的词缀，指此服务器可以安装 8 块 A100 GPU。
-
-* 服务器型号：Supermicro AS-4124GS-TNR
-* CPU：双路 AMD EPYC 7742 64-Core Processor (128C256T)
-* 内存：512GB DDR4-2933
-* 存储：2.2TB (`/home`) 本地存储
-* 网络：1Gbps Ethernet
-* GPU：5 $\times$ NVIDIA A100-PCIE-40GB
-* 管理员：陈晟祺
-* 用户管理：LDAP
-* 软件管理：Spack (`/home/spack`)
-* 系统：Debian 11 (Bullseye)
-* 使用方式：SSH
-
 ### `impreza0`
 
 `impreza` 意为 intel's impressive advance
@@ -150,36 +134,36 @@
 * CPU: 双路 Intel Xeon Gold 6338 (64C128T)
 * 内存: 512GB DDR4-3200
 * 网络：1Gbps Ethernet
-* GPU：AMD Instinct MI100
+* GPU：2 $\times$ AMD Instinct MI100
 * 存储：120GB (`/`) + 480GB (`/home`)
-* 管理员：陈晟祺
+* 管理员：于纪平
 * 用户管理：LDAP
-* 系统：Debian 11 (Bullseye)
+* 系统：Debian 12 (Bookworm)
 * 使用方式：SSH
 
 该服务器由内存数据库项目独占。
 
+### `octave2`
+
+* 服务器型号: Supermicro AS-4124GS-TNR (4U)
+* CPU: 2 $\times$ AMD EPYC 7763 64-Core Processor (128C256T)
+* 内存: 512GB DDR4-3200
+* 网络：1Gbps Ethernet + 2 $\times$ 100Gbps Infiniband EDR (w/ OFED 23.04)
+* GPU：AMD Instinct MI250
+* 存储：512GB (`/`) + Intel P4618 6.4TB NVMe SSD 若干
+* 管理员：陈晟祺
+* 用户管理：LDAP
+* 系统：Debian 12 (Bookworm)
+* 使用方式：SSH
+
+该服务器有若干实验性硬件（如 AMD GPU），使用前请与管理员确认。
+
 ### 新集群
 
-新的 Intel 集群正在进一步采购中，预计将由四台同构服务器构成，并配置 Infiniband HDR 200Gbps 网卡。
+<!--新的 Intel 集群正在进一步采购中，预计将由四台同构服务器构成，并配置 Infiniband HDR 200Gbps 网卡。-->
+Te be bought.
 
 ## NVLink GPU 服务器
-
-有两台服务器提供 NVLink 连接的 GPU：
-
-### `zoltan`
-
-* 服务器型号：Inspur 型号不明
-* CPU：双路 Intel(R) Xeon(R) Gold 6240 CPU @ 2.60GHz (36C72T)
-* 内存：512GB DDR4-2933
-* 存储：1TB (`/localhome`, 已弃用) 本地存储 + nico 集群共享 home + 11TB (`/mnt/data`) 共享存储（共享给 `nico` 集群）
-* 网络：20Gbps Ethernet + 100Gbps Infiniband EDR
-* GPU：8 $\times$ NVIDIA Tesla V100-SXM2 32GB
-* 管理员：同 nico
-* 用户管理：LDAP
-* 软件管理：Spack (nico)
-* 系统：Debian 12 (Bookworm)
-* 使用方式：在 nico 的 slurm 上向 SXM 分区提交任务 (需要找管理员添加相应权限)
 
 ### `hanzo`
 
@@ -192,14 +176,14 @@
 * 管理员：陈晟祺
 * 用户管理：LDAP
 * 软件管理：暂无
-* 系统：Ubuntu 20.04 (Focal)
+* 系统：Ubuntu 22.04 (Jammy)
 * 使用方式：SSH
 
 ## 其他集群/服务器
 
 ### `nvdimm`
 
-此集群上装备有 NVDIMM 非易失内存（非 Intel Optane）。
+此集群上装备有 NVDIMM 非易失内存（非 Intel Optane）。目前已损坏。
 
 * 服务器型号：Dell PowerEdge R740
 * CPU：Intel(R) Xeon(R) Gold 6126 CPU @ 2.60GHz (24C48T)
@@ -207,10 +191,10 @@
 * 存储：多个 NVDIMM 非易失内存，容量从 700G 至 1.8T
 * 网络：1Gbps Ethernet
 * 数量：2 (`nvdimm[1-2]`)
-* 管理员：冯冠宇、郑立言
+* 管理员：暂无
 * 用户管理：本地
 * 软件管理：暂无
-* 系统：Ubuntu 18.04.4 LTS (Bionic)
+* 系统：Debian 12 (Bookworm)
 * 使用方式：SSH
 
 ### `lotus`
@@ -223,7 +207,7 @@
 * 存储：24TB 本地 HDD
 * 网络：1Gbps Ethernet + 100Gbps Infiniband EDR（未连接）
 * GPU：NVIDIA Tesla A100 40GB + NVIDIA Tesla V100 32GB
-* 管理员：王豪杰、马子轩
+* 管理员：郑立言
 * 用户管理：本地
 * 软件管理：Spack (`/home/spack/spack/share/spack/`)
 * 系统：Ubuntu 16.04 (Xenial)
@@ -233,7 +217,7 @@
 
 此机器原本为 `nova`。
 
-* 服务器型号：SuperMicro 不明
+* 服务器型号：SuperMicro 不明 (4U)
 * CPU：单路 AMD EPYC 7282 16-Core Processor
 * 内存：112GB DDR4-2400
 * 网络：1Gbps Ethernet
@@ -241,7 +225,7 @@
 * 管理员：师天麾
 * 用户管理：LDAP
 * 软件管理：无
-* 系统：Debian 11 (Bullseye)
+* 系统：Debian 12 (Bookworm)
 * 使用方式：SSH, 使用前请先联系管理员
 
 ### `conv`
@@ -255,24 +239,24 @@
 * 网络：1Gbps Ethernet + 100Gbps Infiniband EDR (w/o OFED)
 * GPU：NVIDIA GeForce GTX 1080 (`conv0`) / NVIDIA Tesla P100 16GB (`conv[1-4]`)
 * 数量：5 (`conv[0-4]`)
-* 管理员：陈晟祺
+* 管理员：翟明书
 * 用户管理：集群内 LDAP
 * 软件管理：Spack (`/opt/spack/spack`)
-* 系统：Debian 10 (Buster)
+* 系统：Debian 12 (Bookworm)
 * 使用方式：SLURM（登录节点 `conv0`）
 
-此集群目前为《高性能计算导论》课程专用（网络与 PACMAN 内网完全隔离），同时也提供给超算队使用。
+此集群目前为《高性能计算导论》课程专用（网络与 PACMAN 内网完全隔离），不提对外服务。
 
 ### `diablo`
 
-* 服务器型号：Dell PowerEdge R730
+* 服务器型号：Dell PowerEdge R740
 * CPU：双路 Intel(R) Xeon(R) Gold 6154 CPU @ 3.00GHz (36C72T)
 * 内存：384GB DDR4-2666
 * 存储：450GB (`rpool`) + 256GB (`tank`) 本地存储（ZFS）
 * 网络：20Gbps Ethernet
 * 管理员：陈晟祺、王邈
 * 用户管理：本地，仅授权可访问
-* 系统：Debian 11 (Bullseye)
+* 系统：Debian 12 (Bookworm)
 * 使用方式：SSH
 
 此为实验室网关，承载了所有的网络流量出入和大部分重要服务。
@@ -294,3 +278,25 @@
 ### `poseidon`
 
 `poseidon` 为已经损坏的共享存储，品牌为赛凡（CYPHY）。
+
+### `gorgon`
+
+__该集群已下线停用，仅保留 gorgon0 以提供旧数据的访问。__
+
+* 服务器型号：Dell PowerEdge R730
+* CPU：双路 Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz (12C, HT disabled)
+* 内存：128GB DDR3-2133
+* 存储：2TB (`/home`) + 2TB (`/mnt/ssd`) 均为共享 NFS（来自 `gorgon0`）
+* 网络：10Gbps (`gorgon0`) / 1Gbps （其他） Ethernet + 100Gbps Infiniband EDR (w/ OFED 4.3)
+* 端口转发：`166.111.68.163:3330` -> `gorgon0:22`
+* GPU：NVIDIA Tesla V100 16GB (`gorgon[1]`) / A100 80GB (`gorgon[3-6]`)
+* 数量：9 (`gorgon[0-9]`) + 4 (`gorgon[10-13]`)
+* 管理员：黄可钊
+* 用户管理：集群内共享
+* 软件管理：Environment Modules (`/usr/local/Modules`) + Spack (`/opt/spack`)
+* 系统：Ubuntu 16.04 (Xenial)
+* 集群使用：SLURM（登录节点 `gorgon0`）
+
+`gorgon` 集群的前 9 台为实际业务集群（`gorgon[2,7]` 已损坏），可通过 SLURM 直接提交作业使用；后 4 台为实验性集群，可通过独占方式向管理员申请使用权限。
+
+目前 `gorgon` 的软件管理较为混乱，两套体系共存。用户可能需要提前测试可用性。
