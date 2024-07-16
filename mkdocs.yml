@@ -28,6 +28,9 @@ nav:
   - 实验室设施: facilities.md
   - 财务相关: finance.md
   - 出国相关: abroad.md
+  - 标准操作流程（SOP）:
+      - 服务器初始化: sop/server-init.md
+      - 系统安装: sop/os-install.md
   # - FAQ: faq.md
 
 extra_javascript:
