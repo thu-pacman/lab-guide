@@ -6,7 +6,7 @@ copyright: 'Copyright &copy; 2021-2024 PACMAN Lab, Department of Computer Scienc
 theme: 
   name: 'material'
   language: 'zh'
-  custom_dir: 'theme-override/'
+  # custom_dir: 'theme-override/'
   icon:
     logo: material/pac-man
     repo: fontawesome/brands/github
