@@ -81,7 +81,7 @@ PACMAN 所有的服务器均不允许使用密码进行 SSH 登录，只能使�
 1. 使用 LDAP 用户名和密码登录 <https://pacman.cs.tsinghua.edu.cn/ldap/>。
 2. 在左侧树中展开 `ou=Users`，找到自己的用户名（以 `uid=<user>` 开头）并点击。
 3. （如果从未添加过公钥）在右侧上面的功能区点击“增加新的属性”，并选择 `sshPuclicKey`。
-4. 在 `sshPublicKey` 属性对应的文本框中增加自己的公钥，格式与 `authorized_keys` 相同，每行一个。
+4. 在 `sshPublicKey` 属性对应的文本框中增加自己的公钥，格式与 `authorized_keys` 相同，每行一个（注意 **不要添加多个 `sshPublicKey` 属性**，否则会导致无法登录）。
 5. 滚动到页面底部，点击 "Update Object" 按钮。
 6. **（重要）** 在确认页面上再次点击 "Update Object" 按钮（注意网页可能很宽，需要滚动）。
 7. 检查 `sshPublicKey` 文本框的内容是否正确。
