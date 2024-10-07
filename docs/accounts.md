@@ -33,11 +33,15 @@ changetype: add
 objectClass: inetOrgPerson
 objectClass: posixAccount
 objectClass: shadowAccount
-objectClass: sshPublicKey
+objectClass: ldapPublicKey
 uid: username
 sn: Mingcheng
 cn: Mingcheng Yonghu
 displayName: 用户名称
+description: 其他描述，可不包含此属性
+mail: hhh99@mails.tsinghua.edu.cn
+telephonenumber: 18888888888
+employeeNumber: 2020999000
 uidNumber: 19999
 gidNumber: 19999
 homeDirectory: /home/username
