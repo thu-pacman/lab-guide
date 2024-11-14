@@ -18,9 +18,22 @@ TODO
 
 ## SLURM 异常
 
+## 任务异常
+
+1. 确认对应结点正常：`sinfo -R <name>` 无输出，否则使用结点异常或离线 QRH。
+2. 确认错误信息：
+    * 如为 `couldn't chdir to ...`，则说明目标机器上无此目录，可能原因包括：
+        * 如果报错目录是用户 home，检查 NFS 是否挂载；
+        * 如果报错目录是 `/sys/fs/cgroups` 等，确认隔离环境是否正确配置；
+        * 如果报错目录为其他非共享目录，确认用户意图；
+    * 如为 `Invalid account or account/partition combination specified`，则说明用户指定了错误的账户或者分区；
+        * 确认用户在正确的集群上提交任务；
+        * 确认用户指定的账户和分区是否正确；
+        * 确认用户的账户是否有相应分区的权限；
+
 ## 结点异常（drain 或者 down）
 
-1. 确认机器状态：DRAIN 或者 DOWN，没有星号，否则转向结点掉线 QRH。
+1. 确认结点状态：DRAIN 或者 DOWN，没有星号，否则转向结点掉线 QRH。
 2. 查看具体原因：`scontrol show node <name>` 以及 `sinfo -R <name>`：
     * 如为 `Node unexpectedly rebooted`，则确认重启原因，并必须执行 [服务器重启流程](server-reboot.md)。
     * 如为 `Kill task failed`，则需要在对应结点确认是否有残留进程；并查看系统日志确认原因。如果必要，则告知用户避免某些操作。
@@ -29,7 +42,7 @@ TODO
 
 ## 结点离线（`down*`）
 
-1. 确认机器状态：`DOWN*`，有星号，否则转向结点异常 QRH。
+1. 确认结点状态：`DOWN*`，有星号，否则转向结点异常 QRH。
 2. 确认对应结点否能能访问：
     * 如果不能，则修理此问题；
 3. 登录相应结点，检查 slurm 服务状态：
