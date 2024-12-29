@@ -18,7 +18,7 @@ TODO
 
 ## SLURM 异常
 
-## 任务异常
+### 任务异常
 
 1. 确认对应结点正常：`sinfo -R <name>` 无输出，否则使用结点异常或离线 QRH。
 2. 确认错误信息：
@@ -31,7 +31,7 @@ TODO
         * 确认用户指定的账户和分区是否正确；
         * 确认用户的账户是否有相应分区的权限；
 
-## 结点异常（drain 或者 down）
+### 结点异常（drain 或者 down）
 
 1. 确认结点状态：DRAIN 或者 DOWN，没有星号，否则转向结点掉线 QRH。
 2. 查看具体原因：`scontrol show node <name>` 以及 `sinfo -R <name>`：
@@ -40,7 +40,7 @@ TODO
     * 如为其他原因，请执行结点异常 QRH。
 3. 使用 `scontrol update nodename=<name> state=resume` 恢复结点状态。
 
-## 结点离线（`down*`）
+### 结点离线（`down*`）
 
 1. 确认结点状态：`DOWN*`，有星号，否则转向结点异常 QRH。
 2. 确认对应结点否能能访问：
@@ -53,3 +53,12 @@ TODO
 4. 确保 slurm 服务在运行，检查结点是否能够访问控制结点：
    * 运行 `ping <controller>`，确认网络是否正常；
    * 运行 `scontrol ping`，确认 slurm 是否正常。
+
+### 更改 gpu 后 Gres 配置异常（slurmctld log 显示 `error: gres/gpu Count mismatch for node xxx`）
+
+1. 确认 `/etc/slurm.conf` 和 `/etc/gres.conf` 中的 GPU 种类和数量一致。
+2. 确认 slurmctld 和 slurmd 都已重启。
+3. 在上述两个文件中删除所有该结点的 gres 配置，重复步骤 2。
+   * 此时应该无需 gres 配置，就能 `srun nvidia-smi` 看到该节点上的所有 gpu。
+4. 在上述两个文件中恢复所有 gres 配置，重复步骤 2。
+   * 再次通过 `srun --gres=xxx nvidia-smi` 确认问题修复。
