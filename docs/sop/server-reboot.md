@@ -11,7 +11,7 @@
 #### yes 集群
 
 * 在 worker 节点上: `mount yes:/home /home`
-* 在 yes 上: `/mnt/octave/mount_octave.sh`
+* 在除 octave 外的所有节点上: `/mnt/octave/mount_octave.sh`
 
 #### nico 集群
 
