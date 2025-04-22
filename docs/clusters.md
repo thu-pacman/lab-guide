@@ -19,7 +19,7 @@
 * 网络：1Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 4.2)
 * GPU：2 $\times$ NVIDIA GeFore 1080 (`bic0[1-4]`)
 * 数量：9 (`bic0[1-9]`)
-* 管理员：俞博文
+* 管理员：蔡严正
 * 用户管理：LDAP（要求位于 `login` 组方可登录）
 * 软件管理：Spack (`/spack-bic`)
 * 系统：Ubuntu 18.04 (Bionic)
@@ -141,7 +141,6 @@
 * 系统：Debian 12 (Bookworm)
 * 使用方式：SSH
 
-该服务器由内存数据库项目独占。
 
 ### `octave2`
 
@@ -158,10 +157,22 @@
 
 该服务器有若干实验性硬件（如 AMD GPU），使用前请与管理员确认。
 
-### 新集群
+### `da`
 
-<!--新的 Intel 集群正在进一步采购中，预计将由四台同构服务器构成，并配置 Infiniband HDR 200Gbps 网卡。-->
-Te be bought.
+`da` 是俄语的 `yes`，同样取自于 `AMD Yes!` 的口号。此外，也指“大数据”的“大”字。
+
+* 服务器型号：Dell PowerEdge R7525
+* CPU：2 $\times$ AMD EPYC 7763 64-Core Processor (128C256T)
+* 内存：384GB DDR4-3200
+* 存储：每机 2 $\times$ 960GB SSD (RAID1) + 2 $\times$ 3.84TB NVMe U.2 SSD
+* 网络：每机 2 $\times$ 25Gbps Ethernet (LACP) + 2 $\times$ 200Gbps Infiniband HDR (MCX755106AS-HEAT 双口网卡)
+* GPU：每机 2 $\times$ NVIDIA Tesla T4 16GB PCIe
+* 数量：4 (`da[1-4]`)
+* 管理员：建设中
+* 用户管理：建设中
+* 软件管理：建设中
+* 系统：Debian 12 (Bookworm)
+* 使用方式：SSH
 
 ## NVLink GPU 服务器
 
@@ -183,7 +194,9 @@ Te be bought.
 
 ### `nvdimm`
 
-此集群上装备有 NVDIMM 非易失内存（非 Intel Optane）。目前已损坏。
+<del>此集群上装备有 NVDIMM 非易失内存（非 Intel Optane）。目前已损坏。</del>
+
+此集群已被拆散挪作他用。
 
 * 服务器型号：Dell PowerEdge R740
 * CPU：Intel(R) Xeon(R) Gold 6126 CPU @ 2.60GHz (24C48T)
@@ -213,7 +226,7 @@ Te be bought.
 * 系统：Ubuntu 16.04 (Xenial)
 * 使用方式：SSH
 
-### `xavier`
+<!-- ### `xavier`
 
 此机器原本为 `nova`。
 
@@ -226,7 +239,7 @@ Te be bought.
 * 用户管理：LDAP
 * 软件管理：无
 * 系统：Debian 12 (Bookworm)
-* 使用方式：SSH, 使用前请先联系管理员
+* 使用方式：SSH, 使用前请先联系管理员 -->
 
 ### `conv`
 
@@ -259,7 +272,20 @@ Te be bought.
 * 系统：Debian 12 (Bookworm)
 * 使用方式：SSH
 
-此为实验室网关，承载了所有的网络流量出入和大部分重要服务。
+此为东主楼网关，承载了所有的网络流量出入和大部分重要服务。
+
+### `diablo`
+
+* 服务器型号：Dell PowerEdge R740
+* CPU：Intel(R) Xeon(R) Gold 6126 CPU @ 2.60GHz (24C48T)
+* 内存：192GB DDR4-2666
+* 网络：2 $\times$ 10Gbps Ethernet (LACP) + 2 $\times$ 100Gbps Infiniband EDR (N/C)
+* 管理员：陈晟祺、王邈
+* 用户管理：本地，仅授权可访问
+* 系统：Debian 12 (Bookworm)
+* 使用方式：SSH
+
+此为自强科技楼机房网关，承载了所有的网络流量出入。
 
 ### `fermat`
 
