@@ -4,9 +4,9 @@
 
 ## `jumper`
 
-此为 `diablo` 上用于提供实验室内网访问的跳板机，不应用用于任何其他用途，尤其是存放较大文件。 **用户在此的文件随时可能不加通知地被清理。**
+此为 `diablo2` 上用于提供实验室内网访问的跳板机，不应用用于任何其他用途，尤其是存放较大文件。 **用户在此的文件随时可能不加通知地被清理。**
 
-端口转发：`166.111.68.163:2222` -> `jumper:22`。用户可以使用 LDAP 账号或者 `jumper` 上的本地帐号登录。
+端口转发：`166.111.236.65:2222` -> `jumper:22`。用户可以使用 LDAP 账号或者 `jumper` 上的本地帐号登录。
 
 ## `bic`
 
@@ -26,40 +26,6 @@
 * 使用方式：SSH
 
 目前 `bic` 整体专用于大数据相关实验，使用前必须与管理员协商确认。
-
-## `nico`
-
-`nico` 得名于 Nikola Tesla，取其姓代指此为 GPU 集群。
-
-* 工作节点
-    * 服务器型号：Supermicro SYS-4029GP-TRT
-    * CPU：双路 Intel(R) Xeon(R) Gold 5218 CPU @ 2.30GHz (32C64T)
-    * 数量：4 (`nico[1-4]`)
-    * GPU：
-        * `nico[1-2]`: 8 $\times$ NVIDIA Tesla V100 32GB
-        * `nico3`: 4 $\times$ NVIDIA Tesla V100 32GB + 4 $\times$ NVIDIA Tesla V100 16GB
-        * `nico4`: 3 $\times$ NVIDIA Tesla V100 32GB + 5 $\times$ NVIDIA Tesla V100 16GB
-    * 网络：1Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 23.04)
-    * 内存：384GB DDR4-2666
-* NVLink GPU 节点：
-    * 服务器型号：Inspur 型号不明
-    * CPU：双路 Intel(R) Xeon(R) Gold 6240 CPU @ 2.60GHz (36C72T)
-    * 内存：512GB DDR4-2933
-    * 网络：20Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 23.04)
-    * GPU：8 $\times$ NVIDIA Tesla V100-SXM2 32GB
-* 管理节点
-    * 服务器型号：Supermicro SYS-2029U-TR4T
-    * CPU：双路 Intel(R) Xeon(R) Gold 6252 CPU @ 2.10GHz (48C96T)
-    * 网络：20Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 23.04)
-    * 内存：384GB DDR4-2933
-* 存储：13.5TB (`/home`) 共享 NFS（来自 `nico0`） + 11TB (`/mnt/zoltan`) 共享 NFS（来自 `zoltan`）
-* 客服：黄可钊
-* 用户管理：LDAP
-* 软件管理：Spack (`/opt/spack`)
-* 系统：Debian 12 (Bookworm)
-* 使用方式：SLURM（登录节点 `nico0`）
-
-`nico` 是实验室用于分布式计算实验的 GPU 集群，可进行至多 32 GPU 规模的实验。进行大规模实验需使用 `Big` 分区，进行长时间任务（如训练大型深度神经网络）需使用 `Long` 分区，这两个分区默认对用户不开放，需要时向管理员进行申请。普通队列中的机器数目会根据使用情况由管理员进行动态调整。__禁止私自从 nico 集群中拆走 GPU，否则会受到天谴。__
 
 ## `ja`
 
@@ -226,20 +192,7 @@
 * 系统：Ubuntu 16.04 (Xenial)
 * 使用方式：SSH
 
-<!-- ### `xavier`
 
-此机器原本为 `nova`。
-
-* 服务器型号：SuperMicro 不明 (4U)
-* CPU：单路 AMD EPYC 7282 16-Core Processor
-* 内存：112GB DDR4-2400
-* 网络：1Gbps Ethernet
-* 加速卡：Xilinx FPGA
-* 管理员：师天麾
-* 用户管理：LDAP
-* 软件管理：无
-* 系统：Debian 12 (Bookworm)
-* 使用方式：SSH, 使用前请先联系管理员 -->
 
 ### `conv`
 
@@ -301,13 +254,15 @@
 
 `fermat` 为 `bic` 集群和 `hanzo` 等服务器提供了共享的 `/home` 存储，并为实验室提供 LDAP 服务。
 
+## 已下线
+
 ### `poseidon`
 
 `poseidon` 为已经损坏的共享存储，品牌为赛凡（CYPHY）。
 
 ### `gorgon`
 
-__该集群已下线停用，仅保留 gorgon0 以提供旧数据的访问。__
+__仅保留 gorgon0 以提供旧数据的访问。__
 
 * 服务器型号：Dell PowerEdge R730
 * CPU：双路 Intel(R) Xeon(R) CPU E5-2670 v3 @ 2.30GHz (12C, HT disabled)
@@ -326,3 +281,52 @@ __该集群已下线停用，仅保留 gorgon0 以提供旧数据的访问。__
 `gorgon` 集群的前 9 台为实际业务集群（`gorgon[2,7]` 已损坏），可通过 SLURM 直接提交作业使用；后 4 台为实验性集群，可通过独占方式向管理员申请使用权限。
 
 目前 `gorgon` 的软件管理较为混乱，两套体系共存。用户可能需要提前测试可用性。
+
+## `nico`
+
+`nico` 得名于 Nikola Tesla，取其姓代指此为 GPU 集群。
+
+* 工作节点
+    * 服务器型号：Supermicro SYS-4029GP-TRT
+    * CPU：双路 Intel(R) Xeon(R) Gold 5218 CPU @ 2.30GHz (32C64T)
+    * 数量：4 (`nico[1-4]`)
+    * GPU：
+        * `nico[1-2]`: 8 $\times$ NVIDIA Tesla V100 32GB
+        * `nico3`: 4 $\times$ NVIDIA Tesla V100 32GB + 4 $\times$ NVIDIA Tesla V100 16GB
+        * `nico4`: 3 $\times$ NVIDIA Tesla V100 32GB + 5 $\times$ NVIDIA Tesla V100 16GB
+    * 网络：1Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 23.04)
+    * 内存：384GB DDR4-2666
+* NVLink GPU 节点：
+    * 服务器型号：Inspur 型号不明
+    * CPU：双路 Intel(R) Xeon(R) Gold 6240 CPU @ 2.60GHz (36C72T)
+    * 内存：512GB DDR4-2933
+    * 网络：20Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 23.04)
+    * GPU：8 $\times$ NVIDIA Tesla V100-SXM2 32GB
+* 管理节点
+    * 服务器型号：Supermicro SYS-2029U-TR4T
+    * CPU：双路 Intel(R) Xeon(R) Gold 6252 CPU @ 2.10GHz (48C96T)
+    * 网络：20Gbps Ethernet + 100Gbps Infiniband EDR (w/ OFED 23.04)
+    * 内存：384GB DDR4-2933
+* 存储：13.5TB (`/home`) 共享 NFS（来自 `nico0`） + 11TB (`/mnt/zoltan`) 共享 NFS（来自 `zoltan`）
+* 客服：黄可钊
+* 用户管理：LDAP
+* 软件管理：Spack (`/opt/spack`)
+* 系统：Debian 12 (Bookworm)
+* 使用方式：SLURM（登录节点 `nico0`）
+
+`nico` 是实验室用于分布式计算实验的 GPU 集群，可进行至多 32 GPU 规模的实验。进行大规模实验需使用 `Big` 分区，进行长时间任务（如训练大型深度神经网络）需使用 `Long` 分区，这两个分区默认对用户不开放，需要时向管理员进行申请。普通队列中的机器数目会根据使用情况由管理员进行动态调整。__禁止私自从 nico 集群中拆走 GPU，否则会受到天谴。__
+
+<!-- ### `xavier`
+
+此机器原本为 `nova`。
+
+* 服务器型号：SuperMicro 不明 (4U)
+* CPU：单路 AMD EPYC 7282 16-Core Processor
+* 内存：112GB DDR4-2400
+* 网络：1Gbps Ethernet
+* 加速卡：Xilinx FPGA
+* 管理员：师天麾
+* 用户管理：LDAP
+* 软件管理：无
+* 系统：Debian 12 (Bookworm)
+* 使用方式：SSH, 使用前请先联系管理员 -->
