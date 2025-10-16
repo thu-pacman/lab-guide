@@ -28,7 +28,7 @@
 
 ## 打印扫描一体机
 
-PACMAN 内网中有多台惠普的打印扫描一体机，包括：
+PACMAN 内网中共有多台惠普的打印扫描一体机，包括：
 
 * `daqian`（大千，HP Color LaserJet Pro MFP M479dw）：彩色双面打印、扫描、复印，位于 9-324 进门处
 * `xizhi`（羲之，HP LaserJet Pro MFP M521dw）：黑白双面打印、扫描、复印，位于 9-324 进门处
