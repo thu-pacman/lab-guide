@@ -1,10 +1,26 @@
 site_name: PACMAN 指南
 site_description: 'Guide for PACMAN Lab, Tsinghua University'
 site_author: 'PACMAN Lab'
-copyright: 'Copyright &copy; 2021-2024 PACMAN Lab, Department of Computer Science and Technology, Tsinghua University. All Rights Reserved.'
+copyright: 'Copyright &copy; 2021-2025 PACMAN Lab, Department of Computer Science and Technology, Tsinghua University. All Rights Reserved.'
 
 theme: 
   name: 'material'
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default 
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  # variant: classic
   language: 'zh'
   # custom_dir: 'theme-override/'
   icon:
@@ -12,7 +28,13 @@ theme:
     repo: fontawesome/brands/github
   features:
     # - navigation.tabs
-    # - navigation.instant
+    - navigation.instant
+    - navigation.instant.prefetch
+    - navigation.instant.progress
+    - navigation.tracking
+    # - navigation.sections
+    - navigation.path
+    - toc.follow
 
 repo_name: 'thu-pacman/lab-guide'
 repo_url: 'https://github.com/thu-pacman/lab-guide'
